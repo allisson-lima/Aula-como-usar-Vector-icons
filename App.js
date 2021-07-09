@@ -1,92 +1,102 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard  } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign'
-
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import IconSenha from 'react-native-vector-icons/Ionicons';
 export default function Icone() {
- return (
-   
-   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-  <View style={style.container}>
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={style.container}>
+        <Text style={style.Title}>Input de Senha</Text>
 
-        <Text style={style.Title}>Acessibilidade</Text>
-
-      <View style={style.containerP}> 
+        <View style={style.containerP}>
           <TextInput
-          style={style.input}
-          placeholder="Digite seu Usuário"
+            style={style.input}
+            placeholder="Digite seu Usuário"
+            placeholderTextColor="#fff"
+            
           />
-        <Icon style={style.icon} name="user" size={25} color='#000'/>
-      
-      </View>
-      
-      <View style={style.containerP}> 
-        <TextInput
-        style={style.input}
-        placeholder="Digite seu Email"
-        />
-      <Icon style={style.icon} name="mail" size={25} color='#000'/>
-        
-      </View>
 
-      <View style={style.containerP}> 
-        <TextInput
-        style={style.input}
-        placeholder="Digite sua Senha"
-        />
-      <Icon style={style.icon} name="key" size={25} color='#000'/>
-        
+          <Icon style={style.icon} name="user" size={25} color="#fff" />
+        </View>
+
+        <View style={style.containerP}>
+          <TextInput
+            style={style.input}
+            placeholder="Digite seu Email"
+            placeholderTextColor="#fff"
+          />
+          <Icon style={style.icon} name="mail" size={25} color="#fff" />
+        </View>
+
+        <View style={style.containerP}>
+          <TextInput
+            style={style.input}
+            placeholder="Digite sua Senha"
+            placeholderTextColor="#fff"
+          />
+
+          <TouchableOpacity style={style.icon}>
+            <IconSenha name="ios-eye" color="#fff" size={30} />
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity style={style.containerButton}>
+          <Text style={style.textButton}>Entrar</Text>
+        </TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={style.containerButton}>
-        <Text style={style.textButton}>Entrar</Text>
-      </TouchableOpacity>
-
-  </View>
-  </TouchableWithoutFeedback>
-  
+    </TouchableWithoutFeedback>
   );
 }
 
 const style = StyleSheet.create({
-  container:{
+  container: {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
+    backgroundColor: '#ccc',
   },
-  containerP:{
+  containerP: {
     justifyContent: 'center',
     alignItems: 'center',
-    width:'100%',
-    marginBottom: 15
+    width: '100%',
+    marginBottom: 15,
   },
-  Title:{
+  Title: {
     fontSize: 30,
     letterSpacing: 3,
-    fontWeight: 'bold', 
-    marginBottom: 50
+    fontWeight: 'bold',
+    marginBottom: 50,
   },
   input: {
     height: 50,
     width: '90%',
-    backgroundColor: '#ccc',
+    backgroundColor: '#000',
     borderRadius: 5,
-    padding: 5
+    padding: 5,
   },
-  icon:{
+  icon: {
     position: 'absolute',
-    right: 45
+    right: 45,
   },
-  containerButton:{
+  containerButton: {
     width: '90%',
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#399fff',
     borderRadius: 5,
-    marginTop: 20
+    marginTop: 20,
   },
-  textButton:{
+  textButton: {
     color: '#fff',
-    fontSize: 25
-  }
-})
+    fontSize: 25,
+  },
+});
