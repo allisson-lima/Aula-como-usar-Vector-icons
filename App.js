@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TextInput,
@@ -11,6 +11,10 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconSenha from 'react-native-vector-icons/Ionicons';
 export default function Icone() {
+
+const [senha, setSenha] = useState('');
+const [passhide, setPasshide] = useState(true);  
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={style.container}>
@@ -21,7 +25,6 @@ export default function Icone() {
             style={style.input}
             placeholder="Digite seu Usuário"
             placeholderTextColor="#fff"
-            
           />
 
           <Icon style={style.icon} name="user" size={25} color="#fff" />
@@ -41,10 +44,13 @@ export default function Icone() {
             style={style.input}
             placeholder="Digite sua Senha"
             placeholderTextColor="#fff"
+            value={senha}
+            onChangeText={(texto) => setSenha(texto)}
+            secureTextEntry={passhide}
           />
 
-          <TouchableOpacity style={style.icon}>
-            <IconSenha name="ios-eye" color="#fff" size={30} />
+          <TouchableOpacity style={style.icon} onPress={() => setPasshide(!passhide)}>
+            <IconSenha name={passhide ? 'ios-eye' : 'ios-eye-off'} color="#fff" size={30} />
           </TouchableOpacity>
         </View>
 
@@ -81,6 +87,7 @@ const style = StyleSheet.create({
     backgroundColor: '#000',
     borderRadius: 5,
     padding: 5,
+    color: '#fff'
   },
   icon: {
     position: 'absolute',
@@ -98,5 +105,7 @@ const style = StyleSheet.create({
   textButton: {
     color: '#fff',
     fontSize: 25,
+    
   },
+ 
 });
